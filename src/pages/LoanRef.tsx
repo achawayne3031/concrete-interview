@@ -41,7 +41,6 @@ export const LoanRef = () => {
       },
     ] = useGetAllLoanRequestMutation();
 
-
     const getCurrentTransaction = (ref: any) => {
         let loanData = new FormData()
         loanData.append('action', 'get_repayment_schedule');

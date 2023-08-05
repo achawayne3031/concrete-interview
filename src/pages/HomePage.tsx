@@ -8,32 +8,20 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Pagination from '@mui/material/Pagination';
 import TablePagination from '@mui/material/TablePagination';
-
 import { useGetAllLoanRequestMutation } from "../store/loans/api";
 import { useAppDispatch } from '../store/hook';
 import { useNavigate } from 'react-router-dom';
-
 import { AllLoanRequest } from '../interface/ResponseInterface';
 import { PageLoader } from '../utils/PageLoader';
-
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { FormControl, FormLabel } from '@mui/material';
-
-
-
-
 
 export const HomePage = () => {
-
-    const dispatch = useAppDispatch()
     const navigate = useNavigate()
-  
     useEffect(() => {
         getLoanRequestData()
     }, []);
@@ -74,22 +62,14 @@ export const HomePage = () => {
         });
     }
     
-  const [currentUser, setCurrentUser] = useState(0)
-
-
   const [allLoanRequestData, setAllLoanRequestData] = React.useState([]);
-
   const rowPageOption = [50, 150, 300]
-
   const [currentRowPerPage, setCurrentRowPerPage] = React.useState(rowPageOption[0]);
   const [currentTableData, setCurrentTableData] = React.useState<AllLoanRequest[] | null>(null);
   const [userDataLength, setUserDataLength] = React.useState(0);
   const [page, setPage] = React.useState(0);
   const [pagnationLength, setPagnationLength] = React.useState(0);
   const [userIncomingData, setUserIncomingData] = React.useState([]);
-
-
-
   
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -126,7 +106,6 @@ const handlePaginationChange = (event: React.ChangeEvent<unknown> | null,
           );
 
     setCurrentTableData(updatedRows)
-
 }
 
 
@@ -161,7 +140,6 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-
     let loanData = new FormData()
     loanData.append('action', 'request_for_loan');
     loanData.append('full_name', formData.full_name)
@@ -200,14 +178,11 @@ const handleSubmit = async (event: React.SyntheticEvent) => {
 
 
 
-  
-
   return (
     <div className='container'>
         <div className='d-flex mt-4'>
-        <button type="button" disabled={loading} className="btn btn-primary" onClick={handleClickOpen}>Request for Loan</button>
+            <button type="button" disabled={loading} className="btn btn-primary" onClick={handleClickOpen}>Request for Loan</button>
         </div>
-
         {/* Dialog */}
         <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Request For Loan</DialogTitle>
