@@ -1,6 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-///import userReducer from './user/UserSlice'
-
 import { loanApi } from './loans/api'
 
 export const store = configureStore({
