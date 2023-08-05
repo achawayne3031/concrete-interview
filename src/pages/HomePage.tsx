@@ -27,15 +27,7 @@ export const HomePage = () => {
     }, []);
 
   
-    const [
-        GetAllLoanRequestMutation,
-      {
-        isLoading: loanRequestIsLoading,
-        isError: loanRequestIsError,
-        data: loanRequestData,
-        error: loanRequestError,
-      },
-    ] = useGetAllLoanRequestMutation();
+    const [GetAllLoanRequestMutation] = useGetAllLoanRequestMutation();
     
     const getLoanRequestData = () => {
         let loanData = new FormData()

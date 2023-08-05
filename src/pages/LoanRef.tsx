@@ -17,8 +17,6 @@ import { PageLoader } from '../utils/PageLoader';
 
 
 export const LoanRef = () => {
-    const dispatch = useAppDispatch()
-    const navigate = useNavigate()
     const { ref } = useParams();
     const [currentTableData, setCurrentTableData] = React.useState<TransactionRefResponse[] | null>(null);
     const [currentTransactionRef, setCurrentTransactionRef] = React.useState<OverAllTransactionRefResponse | null>(null);
@@ -27,19 +25,7 @@ export const LoanRef = () => {
         getCurrentTransaction(ref)
     },[]);
 
-    const goBack = () => {
-      navigate(-1)
-    }
-
-    const [
-        GetAllLoanRequestMutation,
-      {
-        isLoading: loanRequestIsLoading,
-        isError: loanRequestIsError,
-        data: loanRequestData,
-        error: loanRequestError,
-      },
-    ] = useGetAllLoanRequestMutation();
+    const [ GetAllLoanRequestMutation ] = useGetAllLoanRequestMutation();
 
     const getCurrentTransaction = (ref: any) => {
         let loanData = new FormData()
